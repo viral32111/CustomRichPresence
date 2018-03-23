@@ -9,7 +9,7 @@ You need to make your own Application on the Discord Developers page and paste t
 
 You can download the latest executable and DLL on the releases page.
 
-All code is open-source, I wrote all but the `DiscordRpc.cs` Class. I'm using a heavly modified version i made myself of the original in this app.
+All code is open-source, I wrote all but the `DiscordRpc.cs` Class. I'm using a modified version I made myself in this app.
 
 If you choose to use this app as a simple executable then by no means do, when launched this app will also check for updates on this repo and will notify you via the Action Center. It will not auto update it though, this is because i also intend this app for developers to deconstruct and look at to learn from.
 
