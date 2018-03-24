@@ -50,6 +50,11 @@
             this.MainDetailsLabel = new System.Windows.Forms.Label();
             this.TimeDetailsLabel = new System.Windows.Forms.Label();
             this.ImageDetailsLabel = new System.Windows.Forms.Label();
+            this.TimestampNow = new System.Windows.Forms.Button();
+            this.Timestamp1H = new System.Windows.Forms.Button();
+            this.Timestamp30M = new System.Windows.Forms.Button();
+            this.Timestamp15M = new System.Windows.Forms.Button();
+            this.Timestamp5M = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // StatusLabel
@@ -70,6 +75,7 @@
             this.UpdateButton.TabIndex = 9;
             this.UpdateButton.Text = "Update Status";
             this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // ShutdownButton
             // 
@@ -79,6 +85,7 @@
             this.ShutdownButton.TabIndex = 10;
             this.ShutdownButton.Text = "Shutdown";
             this.ShutdownButton.UseVisualStyleBackColor = true;
+            this.ShutdownButton.Click += new System.EventHandler(this.ShutdownButton_Click);
             // 
             // StatusText
             // 
@@ -86,6 +93,7 @@
             this.StatusText.Name = "StatusText";
             this.StatusText.Size = new System.Drawing.Size(453, 22);
             this.StatusText.TabIndex = 1;
+            this.StatusText.TextChanged += new System.EventHandler(this.StatusText_TextChanged);
             // 
             // DetailText
             // 
@@ -93,6 +101,7 @@
             this.DetailText.Name = "DetailText";
             this.DetailText.Size = new System.Drawing.Size(453, 22);
             this.DetailText.TabIndex = 2;
+            this.DetailText.TextChanged += new System.EventHandler(this.DetailText_TextChanged);
             // 
             // DetailLabel
             // 
@@ -108,8 +117,9 @@
             // 
             this.StartTime.Location = new System.Drawing.Point(66, 123);
             this.StartTime.Name = "StartTime";
-            this.StartTime.Size = new System.Drawing.Size(453, 22);
+            this.StartTime.Size = new System.Drawing.Size(377, 22);
             this.StartTime.TabIndex = 3;
+            this.StartTime.TextChanged += new System.EventHandler(this.StartTime_TextChanged);
             // 
             // StartTimeLabel
             // 
@@ -125,8 +135,9 @@
             // 
             this.EndTime.Location = new System.Drawing.Point(66, 151);
             this.EndTime.Name = "EndTime";
-            this.EndTime.Size = new System.Drawing.Size(453, 22);
+            this.EndTime.Size = new System.Drawing.Size(256, 22);
             this.EndTime.TabIndex = 4;
+            this.EndTime.TextChanged += new System.EventHandler(this.EndTime_TextChanged);
             // 
             // EndTimeLabel
             // 
@@ -144,6 +155,7 @@
             this.LargeImageKey.Name = "LargeImageKey";
             this.LargeImageKey.Size = new System.Drawing.Size(115, 22);
             this.LargeImageKey.TabIndex = 5;
+            this.LargeImageKey.TextChanged += new System.EventHandler(this.LargeImageKey_TextChanged);
             // 
             // LargeImageKeyLabel
             // 
@@ -171,6 +183,7 @@
             this.LargeImageText.Name = "LargeImageText";
             this.LargeImageText.Size = new System.Drawing.Size(231, 22);
             this.LargeImageText.TabIndex = 6;
+            this.LargeImageText.TextChanged += new System.EventHandler(this.LargeImageText_TextChanged);
             // 
             // SmallImageText
             // 
@@ -178,6 +191,7 @@
             this.SmallImageText.Name = "SmallImageText";
             this.SmallImageText.Size = new System.Drawing.Size(231, 22);
             this.SmallImageText.TabIndex = 8;
+            this.SmallImageText.TextChanged += new System.EventHandler(this.SmallImageText_TextChanged);
             // 
             // SmallImageTextLabel
             // 
@@ -195,6 +209,7 @@
             this.SmallImageKey.Name = "SmallImageKey";
             this.SmallImageKey.Size = new System.Drawing.Size(115, 22);
             this.SmallImageKey.TabIndex = 7;
+            this.SmallImageKey.TextChanged += new System.EventHandler(this.SmallImageKey_TextChanged);
             // 
             // SmallImageKeyLabel
             // 
@@ -236,12 +251,72 @@
             this.ImageDetailsLabel.TabIndex = 20;
             this.ImageDetailsLabel.Text = "Image Presence Details (Leave blank to not display)";
             // 
+            // TimestampNow
+            // 
+            this.TimestampNow.Location = new System.Drawing.Point(449, 122);
+            this.TimestampNow.Name = "TimestampNow";
+            this.TimestampNow.Size = new System.Drawing.Size(71, 24);
+            this.TimestampNow.TabIndex = 21;
+            this.TimestampNow.Text = "Now";
+            this.TimestampNow.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TimestampNow.UseVisualStyleBackColor = true;
+            this.TimestampNow.Click += new System.EventHandler(this.TimestampNow_Click);
+            // 
+            // Timestamp1H
+            // 
+            this.Timestamp1H.Location = new System.Drawing.Point(481, 150);
+            this.Timestamp1H.Name = "Timestamp1H";
+            this.Timestamp1H.Size = new System.Drawing.Size(39, 24);
+            this.Timestamp1H.TabIndex = 22;
+            this.Timestamp1H.Text = "1h";
+            this.Timestamp1H.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Timestamp1H.UseVisualStyleBackColor = true;
+            this.Timestamp1H.Click += new System.EventHandler(this.Timestamp1H_Click);
+            // 
+            // Timestamp30M
+            // 
+            this.Timestamp30M.Location = new System.Drawing.Point(430, 150);
+            this.Timestamp30M.Name = "Timestamp30M";
+            this.Timestamp30M.Size = new System.Drawing.Size(46, 24);
+            this.Timestamp30M.TabIndex = 23;
+            this.Timestamp30M.Text = "30m";
+            this.Timestamp30M.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Timestamp30M.UseVisualStyleBackColor = true;
+            this.Timestamp30M.Click += new System.EventHandler(this.Timestamp30M_Click);
+            // 
+            // Timestamp15M
+            // 
+            this.Timestamp15M.Location = new System.Drawing.Point(379, 150);
+            this.Timestamp15M.Name = "Timestamp15M";
+            this.Timestamp15M.Size = new System.Drawing.Size(46, 24);
+            this.Timestamp15M.TabIndex = 24;
+            this.Timestamp15M.Text = "15m";
+            this.Timestamp15M.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Timestamp15M.UseVisualStyleBackColor = true;
+            this.Timestamp15M.Click += new System.EventHandler(this.Timestamp15M_Click);
+            // 
+            // Timestamp5M
+            // 
+            this.Timestamp5M.Location = new System.Drawing.Point(329, 150);
+            this.Timestamp5M.Name = "Timestamp5M";
+            this.Timestamp5M.Size = new System.Drawing.Size(46, 24);
+            this.Timestamp5M.TabIndex = 25;
+            this.Timestamp5M.Text = "5m";
+            this.Timestamp5M.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Timestamp5M.UseVisualStyleBackColor = true;
+            this.Timestamp5M.Click += new System.EventHandler(this.Timestamp5M_Click);
+            // 
             // Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(531, 334);
+            this.Controls.Add(this.Timestamp5M);
+            this.Controls.Add(this.Timestamp15M);
+            this.Controls.Add(this.Timestamp30M);
+            this.Controls.Add(this.Timestamp1H);
+            this.Controls.Add(this.TimestampNow);
             this.Controls.Add(this.ImageDetailsLabel);
             this.Controls.Add(this.TimeDetailsLabel);
             this.Controls.Add(this.MainDetailsLabel);
@@ -266,12 +341,13 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Controls";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Custom Discord RPC";
+            this.Load += new System.EventHandler(this.Controls_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +376,10 @@
         private System.Windows.Forms.Label MainDetailsLabel;
         private System.Windows.Forms.Label TimeDetailsLabel;
         private System.Windows.Forms.Label ImageDetailsLabel;
+        private System.Windows.Forms.Button TimestampNow;
+        private System.Windows.Forms.Button Timestamp1H;
+        private System.Windows.Forms.Button Timestamp30M;
+        private System.Windows.Forms.Button Timestamp15M;
+        private System.Windows.Forms.Button Timestamp5M;
     }
 }

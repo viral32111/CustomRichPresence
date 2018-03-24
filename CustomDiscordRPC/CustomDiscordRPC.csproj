@@ -7,7 +7,7 @@
     <ProjectGuid>{13930922-2CD2-4D3A-9927-58E1C5897454}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CustomDiscordRPC</RootNamespace>
-    <AssemblyName>Custom Discord RPC</AssemblyName>
+    <AssemblyName>CustomDiscordRPC</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
