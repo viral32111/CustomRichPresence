@@ -1,5 +1,5 @@
 # CustomDiscordRPC
-#### Version: 0002
+#### Version: 0004
 
 Customisable Discord Rich Presence Client/Updater written in C#.
 
