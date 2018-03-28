@@ -1,20 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CustomDiscordRPC
 {
     public partial class Controls : Form
     {
+        private DiscordRpc.RichPresence presence;
+        DiscordRpc.EventHandlers handlers;
+
         public Controls()
         {
             InitializeComponent();
+        }
+
+        // Ready Callback
+        private void ReadyCallback()
+        {
+            RPCStatusLabel.Text = "Ready";
+        }
+
+        // Disconnected Callback
+        private void DisconnectedCallback(int errorCode, string message)
+        {
+            RPCStatusLabel.Text = "Disconnected!";
+            MessageBox.Show("Disconnect " + errorCode.ToString() + ": " + message);
+        }
+
+        // Error Callback
+        private void ErrorCallback(int errorCode, string message)
+        {
+            RPCStatusLabel.Text = "Error!";
+            MessageBox.Show("Error " + errorCode.ToString() + ": " + message);
+            Close();
         }
 
         private void Controls_Load(object sender, EventArgs e)
@@ -27,15 +44,39 @@ namespace CustomDiscordRPC
             LargeImageText.Text = Properties.Settings.Default.LargeImageText;
             SmallImageKey.Text = Properties.Settings.Default.SmallImageText;
             SmallImageText.Text = Properties.Settings.Default.SmallImageText;
+
+            handlers = new DiscordRpc.EventHandlers();
+            handlers.readyCallback = ReadyCallback;
+            handlers.disconnectedCallback += DisconnectedCallback;
+            handlers.errorCallback += ErrorCallback;
+
+            DiscordRpc.RPCInit(Properties.Settings.Default.ClientID, ref handlers, true, null);
+
+            RPCStatusLabel.Text = "Initalized";
         }
 
         private void ShutdownButton_Click(object sender, EventArgs e)
         {
+            RPCStatusLabel.Text = "Shutting Down...";
+
+            DiscordRpc.RPCShutdown();
+
             Close();
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
+            presence.details = DetailText.Text;
+            presence.state = StatusText.Text;
+
+            presence.largeImageKey = LargeImageKey.Text;
+            presence.largeImageText = LargeImageText.Text;
+            presence.smallImageKey = SmallImageKey.Text;
+            presence.smallImageText = SmallImageText.Text;
+
+            DiscordRpc.RPCUpdate(ref presence);
+
+            // Save it
             Properties.Settings.Default.Details = DetailText.Text;
             Properties.Settings.Default.Status = StatusText.Text;
             Properties.Settings.Default.StartTime = StartTime.Text;
@@ -108,6 +149,11 @@ namespace CustomDiscordRPC
         }
 
         private void LargeImageKey_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RPCStatusLabel_Click(object sender, EventArgs e)
         {
 
         }

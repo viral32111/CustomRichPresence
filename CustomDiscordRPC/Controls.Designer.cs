@@ -55,6 +55,7 @@
             this.Timestamp30M = new System.Windows.Forms.Button();
             this.Timestamp15M = new System.Windows.Forms.Button();
             this.Timestamp5M = new System.Windows.Forms.Button();
+            this.RPCStatusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // StatusLabel
@@ -115,6 +116,7 @@
             // 
             // StartTime
             // 
+            this.StartTime.Enabled = false;
             this.StartTime.Location = new System.Drawing.Point(66, 123);
             this.StartTime.Name = "StartTime";
             this.StartTime.Size = new System.Drawing.Size(377, 22);
@@ -133,6 +135,7 @@
             // 
             // EndTime
             // 
+            this.EndTime.Enabled = false;
             this.EndTime.Location = new System.Drawing.Point(66, 151);
             this.EndTime.Name = "EndTime";
             this.EndTime.Size = new System.Drawing.Size(256, 22);
@@ -253,6 +256,7 @@
             // 
             // TimestampNow
             // 
+            this.TimestampNow.Enabled = false;
             this.TimestampNow.Location = new System.Drawing.Point(449, 122);
             this.TimestampNow.Name = "TimestampNow";
             this.TimestampNow.Size = new System.Drawing.Size(71, 24);
@@ -264,6 +268,7 @@
             // 
             // Timestamp1H
             // 
+            this.Timestamp1H.Enabled = false;
             this.Timestamp1H.Location = new System.Drawing.Point(481, 150);
             this.Timestamp1H.Name = "Timestamp1H";
             this.Timestamp1H.Size = new System.Drawing.Size(39, 24);
@@ -275,6 +280,7 @@
             // 
             // Timestamp30M
             // 
+            this.Timestamp30M.Enabled = false;
             this.Timestamp30M.Location = new System.Drawing.Point(430, 150);
             this.Timestamp30M.Name = "Timestamp30M";
             this.Timestamp30M.Size = new System.Drawing.Size(46, 24);
@@ -286,6 +292,7 @@
             // 
             // Timestamp15M
             // 
+            this.Timestamp15M.Enabled = false;
             this.Timestamp15M.Location = new System.Drawing.Point(379, 150);
             this.Timestamp15M.Name = "Timestamp15M";
             this.Timestamp15M.Size = new System.Drawing.Size(46, 24);
@@ -297,6 +304,7 @@
             // 
             // Timestamp5M
             // 
+            this.Timestamp5M.Enabled = false;
             this.Timestamp5M.Location = new System.Drawing.Point(329, 150);
             this.Timestamp5M.Name = "Timestamp5M";
             this.Timestamp5M.Size = new System.Drawing.Size(46, 24);
@@ -306,12 +314,23 @@
             this.Timestamp5M.UseVisualStyleBackColor = true;
             this.Timestamp5M.Click += new System.EventHandler(this.Timestamp5M_Click);
             // 
+            // RPCStatusLabel
+            // 
+            this.RPCStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RPCStatusLabel.Location = new System.Drawing.Point(376, 9);
+            this.RPCStatusLabel.Name = "RPCStatusLabel";
+            this.RPCStatusLabel.Size = new System.Drawing.Size(143, 16);
+            this.RPCStatusLabel.TabIndex = 26;
+            this.RPCStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RPCStatusLabel.Click += new System.EventHandler(this.RPCStatusLabel_Click);
+            // 
             // Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(531, 334);
+            this.Controls.Add(this.RPCStatusLabel);
             this.Controls.Add(this.Timestamp5M);
             this.Controls.Add(this.Timestamp15M);
             this.Controls.Add(this.Timestamp30M);
@@ -381,5 +400,6 @@
         private System.Windows.Forms.Button Timestamp30M;
         private System.Windows.Forms.Button Timestamp15M;
         private System.Windows.Forms.Button Timestamp5M;
+        private System.Windows.Forms.Label RPCStatusLabel;
     }
 }
