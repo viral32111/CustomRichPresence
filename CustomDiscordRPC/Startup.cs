@@ -24,14 +24,9 @@ namespace CustomDiscordRPC
                 Close();
             }
             
-            HttpWebRequest Request = (HttpWebRequest)WebRequest.Create("https://raw.githubusercontent.com/viral32111/CustomDiscordRPC/master/README.md");
-            Request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse Response = (HttpWebResponse)Request.GetResponse())
-            using (Stream Stream = Response.GetResponseStream())
-            using (StreamReader Reader = new StreamReader(Stream))
-            {
-                LatestVersion = Reader.ReadToEnd().Substring(33, 4);
+            using (var wc = new WebClient()) {
+                LatestVersion = wc.DownloadString("https://raw.githubusercontent.com/viral32111/CustomDiscordRPC/master/README.md")
+                                  .Substring(33, 4);
             }
             
             string CurrentVersion = Assembly.GetEntryAssembly().GetName().Version.ToString().Replace(".", "");
