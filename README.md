@@ -19,4 +19,4 @@ For more information on Discord's RPC read [this](https://discordapp.com/develop
 
 [Donate](https://viral32111.com/donate)
 
-###### [Copyright 2018-2020 viral32111](LICENCE.txt)
+###### [Copyright 2018 - 2021 viral32111](LICENCE.txt)
