@@ -7,7 +7,7 @@ This is a Windows Forms application written in C# using the [.NET Framework](htt
 # Usage
 
 1. Create an application on the [Discord Developer Portal](https://discord.com/developers/applications) with a name that represents what you wish to show on your user profile, and upload a few rich presence assets too.
-2. Download and launch the [latest release] of this application, then configure it with the client ID of the Discord application you just created.
+2. Download and launch the [latest release](https://github.com/viral32111/CustomRichPresence/releases/latest) of this application, then configure it with the client ID of the Discord application you just created.
 3. Tweak the various rich presence parameters until it suits your desires.
 4. Click update, then keep the application running in the background.
 
